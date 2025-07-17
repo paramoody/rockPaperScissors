@@ -1,61 +1,71 @@
+let userScore = 0;
 
-userScore = 0
-computerScore = 0
+let computerScore = 0;
 
-
-while userScore and computerScore < 5{
-    playRound()
+function getComputerChoice() {
+  computerMove = Math.floor(Math.random() * (4 - 1) + 1);
+  
+  if (computerMove == 1) {
+    return 'Rock';
+  } else if (computerMove == 2) {
+    return 'Paper';
+  } else {
+    return 'Scissors';
+  }
 }
-if user = 5{
-    print (you are the champion)
-    else print {you are the biggest loser ever!}
+
+
+for (let i = 0; i < 5; i++ ) {
+  playRound();
+  console.log("Next Round");
 }
+if (userScore == 5) {
+  console.log('You got 5 points! you won the game!');
+} else {
+  console.log('You have lost and brought great dishonor upon yourself');
 }
 
+function playRound() {
+    console.log("Computer Score: " + computerScore);
+    console.log("User Score: " + userScore);
+  let computerChoice = getComputerChoice();
+  let userChoice = prompt('Enter Rock, Paper, scissors');
+  console.log('You chose ' + userChoice);
+  console.log('Computer chose ' + computerChoice);
 
-function playRound(){
-    userMove = prompt("Enter r for rock, p for paper, or s for scissors")
-
-    computerMove = Math.randomNumber(1-3)
-}   
-    if (computerMove = 1){
-        print("computer chose rock")
-        if userMove = r{
-            print( "tie!")
-        }elif userMove = p{
-            print("you win!")
-            userScore ++
-        
-        }{elif userMove = s{
-            print("you lose!")
-            computerScore ++
-        }
-    }elif computerMove = 2{
-        print("computer chose paper")
-        if userMove = r{
-            print( "You Lose!")
-            computerScore ++
-        }elif userMove = p{
-            print("Tie!")
-            
-        
-        }{elif userMove = s{
-            print("win!")
-            userScore ++
-        }
+  if(computerChoice == 'Rock'){
+    if (userChoice == 'Rock'){
+        console.log("Tie!");
+    }else if (userChoice == 'Paper'){
+        console.log("You Win!");
+        userScore ++;
+    }else{
+        console.log("You Lose!");
+        computerScore++;
     }
-
-}elif computerMove = 3{
-        print("computer chose scissors")
-        if userMove = r{
-            print( "You Win!")
-            userScore ++
-        }elif userMove = p{
-            print("You Lose!")
-            computerScore++
+  }
+    if(computerChoice == 'Paper'){
+    if (userChoice == 'Rock'){
+        console.log("You lose!");
+        computerScore++;
+    }else if (userChoice == 'Paper'){
+        console.log("Tie!");
         
-        }{elif userMove = s{
-            print("Tie!")
-            
-        }
+    }else{
+        console.log("You Win!");
+        userScore++;
     }
+  }
+    if(computerChoice == 'Scissors'){
+    if (userChoice == 'Rock'){
+        console.log("You Win!");
+        userScore++;
+    }else if (userChoice == 'Paper'){
+        console.log("You Lose!");
+        computerScore ++;
+    }else{
+        console.log("Tie!");
+        
+    }
+  }
+}
