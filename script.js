@@ -16,13 +16,17 @@ function getComputerChoice() {
 
 
 for (let i = 0; i < 5; i++ ) {
-  playRound();
-  console.log("Next Round");
+    console.log("Round " + (i+1));
+     playRound();
 }
-if (userScore == 5) {
-  console.log('You got 5 points! you won the game!');
-} else {
-  console.log('You have lost and brought great dishonor upon yourself');
+if (userScore > computerScore) {
+  console.log('You won the game!');
+} else if (userScore== computerScore) {
+    console.log("You have tied");
+    
+}else{
+
+    console.log('You have lost and brought great dishonor upon yourself');
 }
 
 function playRound() {
